@@ -25,6 +25,18 @@ func (d *DLogger) Debug(v ...interface{}) {
 	}
 }
 
+func (d *DLogger) Debugf(format string, v ...interface{}) {
+	if d.debug {
+		d.Printf(format, v...)
+	}
+}
+
+func (d *DLogger) Debugln(v ...interface{}) {
+	if d.debug {
+		d.Println(v...)
+	}
+}
+
 func (d *DLogger) SetDebug(b bool) {
 	d.deb_mu.Lock()
 	defer d.deb_mu.Unlock()
@@ -33,6 +45,14 @@ func (d *DLogger) SetDebug(b bool) {
 
 func Debug(v ...interface{}) {
 	std.Debug(v...)
+}
+
+func Debugf(format string, v ...interface{}) {
+	std.Debugf(format, v...)
+}
+
+func Debugln(v ...interface{}) {
+	std.Debugln(v...)
 }
 
 func SetDebug(b bool) {

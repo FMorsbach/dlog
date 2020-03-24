@@ -19,12 +19,11 @@ func TestCustomLogger(t *testing.T) {
 	logger.Debug("Debug1")
 }
 
-
 func TestDefaultLogger(t *testing.T) {
 
 	Debug("Debug0")
 
 	SetDebug(false)
-	
+
 	Debug("Debug1")
 }
